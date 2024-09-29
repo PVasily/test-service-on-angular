@@ -1,0 +1,36 @@
+<h4 class="text-slate-300 mb-4">Вопросы группы</h4>
+
+@for (quest of QIG; track $index) {
+    <div class="quest-title pt-3 cursor-pointer" (click)="redirectTo(quest.id)">
+            {{ quest.question }} 
+    </div>
+}
+
+@if(showResult) {
+    <button 
+        (click)="getAnsweredQuestInGroup()"
+        class="bg-slate-700 cursor-pointer hover:bg-slate-500 translate-x-6 rounded-md justify-center p-3 font-sans text-white" >
+        Показать результат
+    </button>
+}
+@if(rightAnswers !== 0) {
+    <div 
+     class="text-slate-300"
+     (volumechange)="rightAnswers" >
+         Правильных ответов: {{ rightAnswers }} 
+    </div>
+}
+@if(wrongAnswers !== 0) {
+    <div
+     class="text-slate-300"
+     (volumechange)="wrongAnswers" >
+      Неправильных ответов: {{ wrongAnswers }}
+     </div>
+}
+
+  @if(resetResult) { <button 
+    (click)="resetAnsweredQuestInGroup()"
+    class="ml-2 bg-slate-700 cursor-pointer hover:bg-slate-500 translate-x-6 rounded-md justify-center p-3 font-sans text-white"
+    >
+    Сбросить результат группы
+    </button>}

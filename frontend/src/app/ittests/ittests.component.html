@@ -1,0 +1,81 @@
+<div class="top-1/2 translate-x-1/2">
+    <!-- <form 
+        count="count"
+        [formGroup]="form" 
+        class="px-3" 
+        
+        >
+        <p>{{tests?.question}}</p>
+        <div class="flex">
+            <input 
+                class="i-check p-2 bg-slate-300 mr-2"
+                type="checkbox" 
+                id="test.answerRight1" 
+                formControlName="right"
+                >
+            <span>{{tests?.right_answer}}</span>
+        </div>
+        <div class="flex">
+            <input 
+                class="i-check  mr-2"
+                type="checkbox" 
+                id="test.answerWrong1" 
+                formControlName="wrong1"
+            >
+            <span>{{tests?.wrong_answer1}}</span>
+        </div>
+        <div class="flex">
+            <input 
+                class="i-check  mr-2"
+                type="checkbox" 
+                id="test.answerWrong2" 
+                formControlName="wrong2"
+            >
+            <span>{{tests?.wrong_answer2}}</span>
+        </div>
+        <div class="flex">
+            <input 
+                class="i-check  mr-2"
+                type="checkbox" 
+                id="test.answerWrong3" 
+                formControlName="wrong3"
+            >
+            <span>{{tests?.wrong_answer3}}</span>
+        </div>
+        <button 
+            id="test.id"
+            *ngIf="isChecked"
+            class="bg-slate-700 cursor-pointer hover:bg-slate-500 translate-x-6 rounded-md justify-center p-3 font-sans text-white" 
+            type="submit" (click)="submitted()"
+            >
+            ANSWER
+        </button>
+    </form> -->
+
+    <form [formGroup]="myForm">
+        <p class="quest">{{tests?.question}}</p>
+        <div formArrayName="answersList">
+            <div class="flex chb-item" *ngFor="let form of answersList.controls; let i = index">
+                <input 
+                    (ngModel)="answers"
+                    class="i-check p-2 bg-slate-300 mr-2"
+                    type="checkbox" 
+                    id="i" 
+                    
+                    formControlName="{{i}}"
+                    >
+                <span>{{answers[i]}}</span>
+            </div>
+        </div>
+        <button 
+        
+       
+        class="bg-slate-700 cursor-pointer hover:bg-slate-500 translate-x-6 rounded-md justify-center p-3 font-sans text-white" 
+        type="button" (click)="submit()"
+        >
+        Ответить
+    </button>
+    </form>
+</div>
+        
+

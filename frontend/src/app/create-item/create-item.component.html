@@ -1,0 +1,38 @@
+<form [formGroup]="form" (ngSubmit)="submit()" >
+    <!-- <input 
+        type="text"
+        class="border rounded-md w-ful py-2 px-4 mb-2 mx-2"
+        placeholder="Title"
+        formControlName="title"
+        appFocus
+        >
+        <p *ngIf="title.errors?.minlength && title.touched" class="text-red-600 font-medium mb-2">
+            Min length must be more than 6. Now {{title.value.length}}
+        </p> -->
+
+        <input 
+        type="text"
+        class="border rounded-md w-ful py-2 px-4 mb-2 mx-2"
+        placeholder="Email"
+        formControlName="email"
+        appFocus
+        >
+        <!-- <p *ngIf="email.errors?.minlength && email.touched" class="text-red-600 font-medium mb-2">
+            Min length must be more than 6. Now {{email.value.length}}
+        </p> -->
+
+        <input 
+        type="password"
+        class="border rounded-md w-ful py-2 px-4 mb-2 mx-2"
+        placeholder="Password"
+        formControlName="password"
+        appFocus
+        >
+        <!-- <p *ngIf="password.errors?.minlength && password.touched" class="text-red-600 font-medium mb-2">
+            Min length must be more than 6. Now {{password.value.length}}
+        </p> -->
+<div>
+    <button class="py-2 rounded-md px-4 bg-blue-600 text-white mr-2" type="submit">Авторизоваться</button>
+    <button class="py-2 rounded-md px-4 bg-green-600 text-white" type="button" (click)="confirm()">Подтвердить</button>
+</div>
+</form>

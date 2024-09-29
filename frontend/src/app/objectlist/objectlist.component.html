@@ -1,0 +1,26 @@
+<app-modal title="LOG IN" *ngIf="modalService.isVisible | async">
+  <app-create-item></app-create-item>
+</app-modal>
+
+<button *ngIf="modalService.isHidden | async" class="rounded-3xl bg-red-700 fixed text-white right-5 bottom-5 px-4 py-2" (click)="modalService.open()">+</button>
+
+<button (click)="getMe()" >ME</button>
+<button (click)="removeToken()" >REMOVE</button>
+
+<input 
+    type="text" 
+    class="mb-2 border py-2 px-4 w-full" 
+    placeholder="Search..."
+    [(ngModel)]="term"
+    >
+<p *ngIf="loading">Loading...</p>
+<div class="object-list" *ngIf="objectlistService.items">
+ 
+    <div
+    (click)="redirectTo(item.id)"
+      *ngFor="let item of objectlistService.items | filterItems: term; let index = index"
+      class="object-list__item bg-slate-300/50 w-48 h-20"
+    >
+      <span>{{ item.id }}</span>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+.i-check {
+  font-family: system-ui, sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  line-height: 1.1;
+  display: grid;
+  grid-template-columns: 1em auto;
+  gap: 0.5em;
+  margin-right: 17px;
+  margin-bottom: 10px;
+}
+
+.chb-item {
+  color: rgb(73, 92, 92);
+}
+
+.quest {
+  color: azure;
+  margin-bottom: 25px;
+  color: rgb(73, 92, 92);
+}

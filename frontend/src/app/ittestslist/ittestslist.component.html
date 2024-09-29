@@ -1,0 +1,15 @@
+<div class="translate-x-1/2">
+<h3 class="text-slate-200 mb-3">Группы вопросов</h3>
+
+    <div 
+        class="group-item cursor-pointer"
+        *ngFor="let group of questGroupService.testsGroup let i = index"
+        (click)="redirectTo(group.id)"
+        >
+       <span> {{group.group}} </span>
+    </div>
+
+    <button class="text-slate-300" (click)="getStatistic()">Получить статистику</button>
+
+</div>
+

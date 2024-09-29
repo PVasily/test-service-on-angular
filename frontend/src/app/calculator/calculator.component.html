@@ -1,0 +1,49 @@
+<p>calculator works!</p>
+<p>{{header}}</p>
+
+<!-- <input type="number" [(ngModel)]="first">
+<select [(ngModel)]="operator">
+    <option (value)="operator" *ngFor="let operator of calcvar | keyvalue ">{{operator.value}}</option>
+</select>
+<input type="number" [(ngModel)]="second"> -->
+
+<!-- <button (click)='getAlert()'>{{result ? result : 'Рассчитать'}}</button> -->
+
+<hr>
+
+<ng-container *ngFor="let group of calcgroups; let i = index">
+    <div>
+        <span>(</span>
+        <select class="select-block" [(ngModel)]="group.one.modifier">
+            <option (value)="group.one.modifier" *ngFor="let modifier of calcmodifier | keyvalue ">{{modifier.value}}</option>
+        </select>
+    <input class="bg-slate-300" type="number" [(ngModel)]="group.one.value">
+        <select class="select-block" [(ngModel)]="group.operator">
+            <option (value)="group.operator" *ngFor="let operator of calcvar | keyvalue ">{{operator.value}}</option>
+        </select>
+        <select class="select-block" [(ngModel)]="group.two.modifier">
+            <option (value)="group.two.modifier" *ngFor="let modifier of calcmodifier | keyvalue ">{{modifier.value}}</option>
+        </select>
+    <input type="number" [(ngModel)]="group.two.value">
+    <span>)</span>
+    </div>
+
+    <select class="select-block" [(ngModel)]="operatorBetweenGroups[i]" *ngIf="calcgroups.length > i">
+        <option (value)="group.operator" *ngFor="let operator of calcvar | keyvalue ">{{operator.value}}</option>
+    </select>
+    <button (click)="deleteGroup(i)" >Delete group</button>
+    <!-- <button (click)='getCalc(group.one, group.two, group.operator)'>{{result ? result : 'Рассчитать'}}</button> -->
+</ng-container>
+
+<button (click)="addGroup()">Add group</button>
+
+    <!-- <span *ngFor="let obj in history; let i = index">{{i+1}} {{obj}}</span> -->
+    
+        <span *ngFor="let obj of history; let i = index">{{i+1}} {{obj}} <hr></span>
+    
+<!-- <div>
+    @for (item of history; track $index) {item}
+</div> -->
+<p>{{result ? result : 'Рассчитать'}}</p>
+<button (click)='getCalcGroup()'>{{result ? result : 'Рассчитать'}}</button>
+<button (click)="getCalcGroup()">CalcGroup</button>
